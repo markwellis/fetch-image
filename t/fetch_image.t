@@ -6,6 +6,8 @@ use Test::Exception;
 
 use Fetch::Image;
 
+diag("these tests will fail without an active internet connection, that's not my fault!");
+
 my $fetcher_config = {
     'max_filesize' => '51200',
     'user_agent' => 'mozilla firefox yo',
