@@ -35,11 +35,6 @@ throws_ok{
     $fetcher->fetch( 'http://thisaintnews.com/thisfileisntreal56332421' );
 } qr/transfer error/, 'error 404';
 
-# invalid domain
-throws_ok{
-    $fetcher->fetch( 'http://jnaskjdnkasjdknasd-asdasd-asdasd-asdasd.com/thisfileisntreal56332421' );
-} qr/transfer error/, 'invalid domain';
-
 # proper image
 {
     my $image_info;

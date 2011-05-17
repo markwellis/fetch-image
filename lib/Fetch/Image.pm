@@ -8,7 +8,7 @@ use Data::Validate::URI qw/is_web_uri/;
 use File::Temp;
 use Exception::Simple;
 
-our $VERSION = '0.001';
+our $VERSION = '0.002';
 $VERSION = eval $VERSION;
 
 sub new{

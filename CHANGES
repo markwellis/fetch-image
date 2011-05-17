@@ -1,2 +1,4 @@
+0.002
+    removed invalid domain test as it gave unpredicatble results depending on isp
 0.001
     First release
