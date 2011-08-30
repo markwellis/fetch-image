@@ -30,6 +30,16 @@ throws_ok{
     $fetcher->fetch( 'something un urlish' );
 } qr/invalid url/, 'invalid url';
 
+# 404 - test uri encode (doesn't throw "invalid url" error)
+throws_ok{
+    $fetcher->fetch( 'http://thisaintnews.com/this file isnt real 56332421' );
+} qr/transfer error/, 'error 404';
+
+# 404 - test uri encode (doesn't throw "invalid url" error)
+throws_ok{
+    $fetcher->fetch( 'http://thisaintnews.com/this%20file%20isnt%20real%2056332421' );
+} qr/transfer error/, 'error 404';
+
 # 404
 throws_ok{
     $fetcher->fetch( 'http://thisaintnews.com/thisfileisntreal56332421' );

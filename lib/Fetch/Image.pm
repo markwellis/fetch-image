@@ -7,8 +7,9 @@ use Data::Validate::Image;
 use Data::Validate::URI qw/is_web_uri/;
 use File::Temp;
 use Exception::Simple;
+use URI;
 
-our $VERSION = '0.002';
+our $VERSION = '0.003';
 $VERSION = eval $VERSION;
 
 sub new{
@@ -44,6 +45,9 @@ sub new{
 
 sub fetch{
     my ( $self, $url ) = @_;
+
+    my $uri = URI->new( $url );
+    $url = $uri->as_string;
 
     if ( !defined( $url ) ){
         Exception::Simple->throw("no url");
