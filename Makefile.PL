@@ -12,5 +12,11 @@ requires 'URI';
 test_requires 'Test::More';
 test_requires 'Test::Exception';
 
+perl_version '5.008';
+
+resources(
+    'repository'  => 'https://github.com/n0body-/fetch-image.git',
+);
+
 auto_install;
 WriteAll;
