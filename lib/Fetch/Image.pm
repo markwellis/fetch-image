@@ -9,7 +9,7 @@ use File::Temp;
 use Exception::Simple;
 use URI;
 
-our $VERSION = '0.005';
+our $VERSION = '0.006';
 $VERSION = eval $VERSION;
 
 sub new{

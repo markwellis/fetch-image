@@ -1,5 +1,9 @@
 Revision history for perl module Fetch::Image
 
+0.006 2013-07-29
+    - Reformatted Changes file as per CPAN::Changes::Spec
+    - Changed issue tracker to github
+
 0.005 2013-07-27
     - Changed tests to use google
 
