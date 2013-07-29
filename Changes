@@ -1,10 +1,16 @@
-0.005
-    changed tests to use google
-0.004
-    no changes, I accidently deleted the tar.gz from cpan, had to reupload, can't upload same version twice
-0.003
-    uri escaping
-0.002
-    removed invalid domain test as it gave unpredicatble results depending on isp
-0.001
-    First release
+Revision history for perl module Fetch::Image
+
+0.005 2013-07-27
+    - Changed tests to use google
+
+0.004 2013-04-15
+    - No changes, I accidently deleted the tar.gz from cpan, had to reupload, can't upload same version twice
+
+0.003 2011-08-30
+    - URI escaping
+
+0.002 2011-05-17
+    - Removed invalid domain test as it gave unpredicatble results depending on ISP
+
+0.001 2011-05-16
+    - First release
