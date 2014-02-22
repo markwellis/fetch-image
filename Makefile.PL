@@ -15,8 +15,8 @@ test_requires 'Test::Exception';
 perl_version '5.008';
 
 resources(
-    'bugtracker'  => 'https://github.com/n0body-/fetch-image/issues',
-    'repository'  => 'https://github.com/n0body-/fetch-image.git',
+    'bugtracker'  => 'https://github.com/markwellis/fetch-image/issues',
+    'repository'  => 'https://github.com/markwellis/fetch-image.git',
 );
 
 auto_install;

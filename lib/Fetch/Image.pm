@@ -9,7 +9,7 @@ use File::Temp;
 use Exception::Simple;
 use URI;
 
-our $VERSION = '0.006';
+our $VERSION = '0.006001';
 $VERSION = eval $VERSION;
 
 sub new{
@@ -18,7 +18,7 @@ sub new{
     my $class = ref( $invocant ) || $invocant;
     my $self = {};
     bless( $self, $class );
-    
+
     $self->{'image_validator'} = Data::Validate::Image->new;
 
     $self->{'config'} = $config;
@@ -90,12 +90,12 @@ sub _head{
 
     $head->is_error && Exception::Simple->throw("transfer error");
 
-    exists( $self->{'config'}->{'allowed_types'}->{ $head->header('content-type') } ) 
+    exists( $self->{'config'}->{'allowed_types'}->{ $head->header('content-type') } )
         || Exception::Simple->throw("invalid content-type");
 
     if (
         $head->header('content-length')
-        && ( $head->header('content-length') > $self->{'config'}->{'max_filesize'} ) 
+        && ( $head->header('content-length') > $self->{'config'}->{'max_filesize'} )
     ){
     #file too big
         Exception::Simple->throw("filesize exceeded");
@@ -108,10 +108,10 @@ sub _head{
 sub _save{
     my ( $self, $ua, $url ) = @_;
 
-    my $response = $ua->get( $url ) 
+    my $response = $ua->get( $url )
         || Exception::Simple->throw("download Failed");
 
-    my $temp_file = File::Temp->new 
+    my $temp_file = File::Temp->new
         || Exception::Simple->throw("temp file save failed");
     $temp_file->print( $response->content );
     $temp_file->close;
@@ -119,7 +119,7 @@ sub _save{
     my $image_info = $self->{'image_validator'}->validate($temp_file->filename);
 
     if ( !$image_info ){
-        $temp_file->DESTROY; 
+        $temp_file->DESTROY;
         Exception::Simple->throw("not an image");
     };
 
@@ -193,23 +193,17 @@ takes 1 argument, the url of the image to fetch
 
 returns a hash of the image info, from L<Data::Validate::Image>, with an extra property, 'temp_file' which is the L<File::Temp>
 
-=head1 SUPPORT
-
-Please submit bugs through L<https://github.com/n0body-/fetch-image/issues>
-
-For other issues, contact the maintainer
-
 =head1 AUTHORS
 
-n0body E<lt>n0body@thisaintnews.comE<gt>
+Mark Ellis E<lt>markellis@cpan.orgE<gt>
 
 =head1 SEE ALSO
 
-L<http://thisaintnews.com>, L<Data::Validate::Image>, L<File::Temp>
+L<Data::Validate::Image>, L<File::Temp>
 
 =head1 LICENSE
 
-Copyright (C) 2011 by n0body L<http://thisaintnews.com/>
+Copyright 2014 by Mark Ellis E<lt>markellis@cpan.orgE<gt>
 
 This library is free software, you can redistribute it and/or modify
 it under the same terms as Perl itself.
