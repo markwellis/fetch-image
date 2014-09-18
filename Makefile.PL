@@ -2,7 +2,7 @@ use inc::Module::Install;
 
 all_from('lib/Fetch/Image.pm');
 
-requires 'LWPx::ParanoidAgent';
+requires 'LWP::UserAgent::Paranoid';
 requires 'Data::Validate::Image';
 requires 'Data::Validate::URI';
 requires 'File::Temp';

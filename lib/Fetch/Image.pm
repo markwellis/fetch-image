@@ -2,14 +2,14 @@ package Fetch::Image;
 use strict;
 use warnings;
 
-use LWPx::ParanoidAgent;
+use LWP::UserAgent::Paranoid;
 use Data::Validate::Image;
 use Data::Validate::URI qw/is_web_uri/;
 use File::Temp;
 use Exception::Simple;
 use URI;
 
-our $VERSION = '0.006001';
+our $VERSION = '1.000000';
 $VERSION = eval $VERSION;
 
 sub new{
@@ -62,11 +62,10 @@ sub fetch{
         || Exception::Simple->throw("generic error");
 }
 
-#sets up the LWPx::ParanoidAgent
 sub _setup_ua{
     my ( $self, $url ) = @_;
 
-    my $ua = LWPx::ParanoidAgent->new;
+    my $ua = LWP::UserAgent::Paranoid->new;
 
     if ( defined( $self->{'config'}->{'user_agent'} ) ){
         $ua->agent( $self->{'config'}->{'user_agent'} );

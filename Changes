@@ -1,5 +1,8 @@
 Revision history for perl module Fetch::Image
 
+1.000000 2014-09-18
+    - Changed to use LWP::UserAgent::Paranoid instead of LWPx::ParanoidAgent because of SSL issues
+
 0.006001 2014-02-22
     - Changed github repo url
 
